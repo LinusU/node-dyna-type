@@ -16,10 +16,12 @@ var tests = [
   [[1, 2, 3], { L: [{ N: '1' }, { N: '2' }, { N: '3' }] }],
   [{ a: 23 }, { M: { a: { N: '23' } } }],
   [{ a: [1, 2] }, { M: { a: { L: [{ N: '1' }, { N: '2' }] } } }],
-  [{ a: { b: null } }, { M: { a: { M: { b: { NULL: true } } } } }]
+  [{ a: { b: null } }, { M: { a: { M: { b: { NULL: true } } } } }],
+  [new Set(['1', '2', '3']), { SS: ['1', '2', '3'] }],
+  [new Set([1, 2, 3]), { NS: ['1', '2', '3'] }]
 ];
 
-var keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
 var objectJS = keys.reduce(function (res, key, idx) {
   res[key] = tests[idx][0]; return res;
